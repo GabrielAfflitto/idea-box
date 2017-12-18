@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  # resources :users do
-  #   resources :ideas
-  # end
+
+  root "welcome#index"
+
+  resources :users do
+    resources :ideas
+  end
 
   resources :categories do
     resources :ideas
