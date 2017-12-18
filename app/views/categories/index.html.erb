@@ -1,4 +1,6 @@
+<h1>All Categories</h1>
+
 <% @categories.each do |category| %>
-  <%= category.title %>
-  <%= link_to "Delete", category_path(category), method: "delete"%>
+  <p><%= category.title %>:
+  <%= link_to "Delete", category_path(category), method: "delete"%></p>
 <% end %>
