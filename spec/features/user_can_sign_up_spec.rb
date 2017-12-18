@@ -1,24 +1,24 @@
 require 'rails_helper'
 
-describe "registered user can log in" do
+describe "user signs up for an account" do
   context "they visit the root page" do
-    context "they click the login link" do
-      context "they fill out the log in information" do
-        it "logs in a user" do
-          user = User.create!(username: "KillaCam", password: "dipset")
+    context "they click on the registration link" do
+      context "they fill out the registration link" do
+        it "a new user account is created" do
           visit '/'
 
-          click_on "Log in"
+          click_on "Sign up"
 
-          expect(current_path).to eq(login_path)
+          expect(current_path).to eq(new_user_path)
+          # save_and_open_page
+          fill_in "user[username]", with: "KillaCam"
+          fill_in "user[password]", with: "dipset"
+          click_on "Create User"
 
-          fill_in "user[username]", with: user.username
-          fill_in "user[password]", with: user.password
-          click_on "Log in"
-
-          expect(page).to have_content("Welcome, #{user.username}!")
+          expect(page).to have_content("Welcome, KillaCam!")
         end
       end
     end
+
   end
 end
