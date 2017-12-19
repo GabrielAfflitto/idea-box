@@ -8,8 +8,8 @@
   <%= f.submit %>
 <% end %>
 <br>
-<% @user.ideas.each do |idea|%>
+<% @user.ideas.each do |idea| %>
   <%= idea.description %>
-  <%= idea.category %>
+  <%= idea.category.title %>
   <%= link_to "Edit", edit_user_idea_path(idea.user_id, idea.id) %>
 <% end %>

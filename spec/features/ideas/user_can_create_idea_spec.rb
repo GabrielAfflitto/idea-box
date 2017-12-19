@@ -5,8 +5,8 @@ describe "registered user can create new ideas" do
     context "they see the form for creating new ideas" do
       context "they fill out the idea form" do
         it "creates a new idea and registers on the home page" do
-          Category.create(title: "Great")
-          user = User.create(username: "KillaCam", password: "password")
+          Category.create!(title: "Great")
+          user = User.create!(username: "KillaCam", password: "password")
           visit user_path(user)
 
           fill_in "idea[description]", with: "Jump off a bridge"
