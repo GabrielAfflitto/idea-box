@@ -1,3 +1,28 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #D64933;
+}
+
+div h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 10px;
+}
+
+#main h1 {
+  display: flex;
+  justify-content: center;
+}
+
+div h1:hover {
+  background: #C3432F;
+}
+
+div {
+  margin-top: 300px;
+}
