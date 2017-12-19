@@ -8,5 +8,8 @@ Rails.application.routes.draw do
     resources :ideas, only: [:create, :edit, :update]
   end
 
+  namespace :admin do
+    resources :categories, only: [:index]
+  end
 
 end
