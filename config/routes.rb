@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
 
-  resources :users do
-    resources :ideas
+  resources :users, only: [:new, :create, :show] do
+    resources :ideas, only: [:create, :edit, :update]
   end
 
-  resources :categories do
-    resources :ideas
-  end
+
 end

@@ -13,11 +13,11 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.new(idea_params)
+    @user = User.find(params[:user_id])
+    @idea = @user.ideas.new(idea_params)
 
     if @idea.save!
-      redirect_to category_ideas_path(@category)
+      redirect_to user_path(@user)
     else
       render :new
     end
@@ -29,16 +29,18 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:category_id])
-    @idea = Idea.find(params[:id])
+    # @category = Category.find(params[:category_id])
+    @user = User.find(params[:user_id])
+    @idea = @user.ideas.find(params[:id])
   end
 
   def update
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.find(params[:id])
+    # @category = Category.find(params[:category_id])
+    @user = User.find(params[:user_id])
+    @idea = @user.ideas.find(params[:id])
     @idea.update(idea_params)
 
-    redirect_to category_idea_path(@category, @idea)
+    redirect_to user_path(@user)
   end
 
   private

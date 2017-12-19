@@ -1,1 +1,15 @@
 <p>Welcome, <%= @user.username %>!</p>
+<br>
+
+<%= form_for [@user, @idea] do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>
+  <%= f.submit %>
+<% end %>
+<br>
+<% @user.ideas.each do |idea|%>
+  <%= idea.description %>
+  <%= idea.category %>
+  <%= link_to "Edit", edit_user_idea_path(idea.user_id, idea.id) %>
+<% end %>
