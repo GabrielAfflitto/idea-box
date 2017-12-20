@@ -22,7 +22,7 @@ Authentication and Authorization
 [x] Users need to log in to see their ideas.
 [ ] Users can only see their own ideas – they should not be able to visit another user’s page.
 [ ] Users cannot create ideas for other users.
-[ ] Users cannot create new categories – only the admin can do that.
+[x] Users cannot create new categories – only the admin can do that.
 [ ] Users cannot create images – only the admin can do that; however, a user can assign an image to their idea.
 [x] Visitors can create user accounts.
 
