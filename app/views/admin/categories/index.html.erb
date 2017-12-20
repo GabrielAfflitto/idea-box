@@ -6,6 +6,7 @@
   <%= f.submit %>
 <% end %>
 <br>
+<p> <%= link_to "Your page", user_path(@user) %> </p>
 <% @categories.each do |category| %>
   <p><%= category.title %></p>
      <%= link_to "Delete", admin_category_path(category), method: :delete %>
