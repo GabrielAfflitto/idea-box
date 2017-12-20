@@ -15,9 +15,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @categories = Category.all
-    @idea = Idea.new()
+    if current_user.id == params[:id].to_i
+      @user = current_user
+      @categories = Category.all
+      @idea = Idea.new
+    else
+      render file: "/public/404"
+    end
   end
 
   private

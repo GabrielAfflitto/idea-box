@@ -12,7 +12,7 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = current_user
     @idea = @user.ideas.new(idea_params)
 
     if @idea.save!
@@ -23,17 +23,17 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @user = current_user
     @idea = @user.ideas.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:user_id])
+    @user = current_user
     @idea = @user.ideas.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:user_id])
+    @user = current_user
     @idea = @user.ideas.find(params[:id])
     @idea.update(idea_params)
 
