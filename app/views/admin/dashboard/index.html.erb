@@ -24,4 +24,6 @@
 <% @images.each do |image| %>
   <%= image.name %>
   <%= image_tag image.url %>
+  <%= link_to "Delete", admin_image_path(image) %>
+  <br>
 <% end %>

@@ -8,4 +8,8 @@ class Admin::DashboardController < Admin::BaseController
     @image = Image.new
   end
 
+  def show
+    @image = Image.find(params[:id])
+  end
+
 end

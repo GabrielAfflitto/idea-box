@@ -1,20 +1,40 @@
-<h3>Welcome, <%= @user.username %>!</h3>
-<br>
-  <h4>Come up with a new idea!</h4>
-  <%= form_for [@user, @idea] do |f| %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.collection_select :category_id, @categories, :id, :title, include_blank: true %>
-    <%= f.collection_select :image_ids, @images, :id, :name, {include_blank: true}, {multiple: true} %>
-    <%= f.submit %>
-  <% end %>
-<br>
-<% @user.ideas.each do |idea| %>
-  <p><%= idea.description %></p>
-  <p><% idea.images.each do |image| %></p>
-      <%= image_tag image.url %>
-    <% end %>
-  <p><strong>Category:</strong> <%= idea.category.title %></p>
-  <%= link_to "Edit", edit_user_idea_path(current_user, idea) %>
-  <%= link_to "Delete", user_idea_path(idea.user_id, idea.id), method: :delete %>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome, <%= @user.username %>!</h1>
+      <% if current_user.admin? %>
+        <%= link_to "Dashboard", admin_dashboard_path %>
+      <% end %>
+    </header>
+
+    <section>
+      <h4>Come up with a new idea!</h4>
+      <%= form_for [@user, @idea] do |f| %>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+        <br>
+        <%= f.label :category %>
+        <%= f.collection_select :category_id, @categories, :id, :title, include_blank: true %>
+        <br>
+        <%= f.label :image %>
+        <%= f.collection_select :image_ids, @images, :id, :name, {include_blank: true} %>
+        <%= f.submit %>
+      <% end %>
+    </section>
+
+    <section>
+        <% @user.ideas.each do |idea| %>
+        <p><%= idea.description %></p>
+        <p><% idea.images.each do |image| %></p>
+          <%= image_tag image.url %>
+        <% end %>
+        <p><strong>Category:</strong> <%= idea.category.title %></p>
+        <%= link_to "Edit", edit_user_idea_path(current_user, idea) %>
+        <%= link_to "Delete", user_idea_path(idea.user_id, idea.id), method: :delete %>
+        <% end %>
+    </section>
+  </body>
+</html>

@@ -3,7 +3,6 @@ class Admin::CategoriesController < Admin::BaseController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:notice] = "Category named #{@category.title} created!"
       redirect_to admin_dashboard_path
     else
       flash[:notice] = "There was an error creating your category"
