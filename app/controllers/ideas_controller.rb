@@ -5,13 +5,6 @@ class IdeasController < ApplicationController
     @ideas = @category.ideas
   end
 
-  # def new
-  #   @category = Category.find(params[:category_id])
-  #   @categories = Category.order(:title)
-  #   @images = Image.order(:name)
-  #   @idea = @category.ideas.new()
-  # end
-
   def create
     @user = current_user
     @idea = @user.ideas.new(idea_params)

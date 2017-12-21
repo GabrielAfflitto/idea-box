@@ -10,7 +10,7 @@ describe "registered user can log in" do
           click_on "Log in"
 
           expect(current_path).to eq(login_path)
-          # save_and_open_page
+
           fill_in "username", with: user.username
           fill_in "password", with: user.password
           click_on "Log in"

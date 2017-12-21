@@ -20,7 +20,6 @@ class UsersController < ApplicationController
       @categories = Category.order(:title)
       @images = Image.order(:name)
       @idea = Idea.new
-      # binding.pry
     else
       render file: "/public/404"
     end
