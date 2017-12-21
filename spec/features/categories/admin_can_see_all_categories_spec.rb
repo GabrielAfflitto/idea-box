@@ -7,7 +7,7 @@ describe "user visits categories index page" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit admin_categories_path
+      visit admin_dashboard_path
 
       expect(page).to have_content("Admin Categories")
     end
@@ -19,7 +19,7 @@ describe "user visits categories index page" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit admin_categories_path
+      visit admin_dashboard_path
 
       expect(page).to_not have_content("Admin Categories")
       expect(page).to have_content("The page you were looking for doesn't exist.")

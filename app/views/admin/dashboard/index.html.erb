@@ -12,3 +12,16 @@
      <%= link_to "Delete", admin_category_path(category), method: :delete %>
 <% end %>
 <br>
+<h3>Create a new image here</h3>
+<%= form_for [:admin, @image] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <%= f.submit %>
+<% end %>
+<br>
+<% @images.each do |image| %>
+  <%= image.name %>
+  <%= image_tag image.url %>
+<% end %>

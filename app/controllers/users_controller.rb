@@ -17,8 +17,10 @@ class UsersController < ApplicationController
   def show
     if current_user.id == params[:id].to_i
       @user = current_user
-      @categories = Category.all
+      @categories = Category.order(:title)
+      @images = Image.order(:name)
       @idea = Idea.new
+      # binding.pry
     else
       render file: "/public/404"
     end

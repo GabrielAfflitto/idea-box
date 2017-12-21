@@ -5,16 +5,17 @@ class IdeasController < ApplicationController
     @ideas = @category.ideas
   end
 
-  def new
-    @category = Category.find(params[:category_id])
-    @categories = Category.all
-    @idea = @category.ideas.new()
-  end
+  # def new
+  #   @category = Category.find(params[:category_id])
+  #   @categories = Category.order(:title)
+  #   @images = Image.order(:name)
+  #   @idea = @category.ideas.new()
+  # end
 
   def create
     @user = current_user
     @idea = @user.ideas.new(idea_params)
-
+    # binding.pry
     if @idea.save!
       redirect_to user_path(@user)
     else
@@ -51,7 +52,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:description, :category_id)
+    params.require(:idea).permit(:description, :category_id, image_ids: [])
   end
 
 end

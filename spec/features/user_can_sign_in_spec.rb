@@ -34,8 +34,8 @@ describe "registered user can log in" do
           fill_in "username", with: user.username
           fill_in "password", with: user.password
           click_on "Log in"
-          save_and_open_page
-          expect(current_path).to eq(dashboard_path)
+
+          expect(current_path).to eq(admin_dashboard_path)
           expect(page).to have_content("Admin Categories")
         end
       end
