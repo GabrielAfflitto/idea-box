@@ -50,11 +50,26 @@ section h1 {
   display: inline-block;
 }
 
-
 .auth h1:hover {
   background: #7B756E;
 }
 
 div {
   margin-top: 300px;
+}
+
+.login li {
+  display: table-row-group;
+  text-align: center;
+}
+
+.login ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
 }
