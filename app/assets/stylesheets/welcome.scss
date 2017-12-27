@@ -4,23 +4,55 @@
 
 body {
   font-family: 'Raleway', sans-serif;
-  background-color: #D64933;
+  background-color: #8B8680;
 }
 
-div h1 {
+header.bar {
+  background: #92E0E5;
+  color: white;
+  height: 74px;
+  padding: 0 25px;
+}
+
+header nav {
+  float: right;
+}
+
+nav li {
+  display: inline-block;
+  padding: 17px 10px;
+}
+
+nav li:hover {
+  background: #C3432F;
+}
+
+section h1 {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 17px 10px;
 }
 
-#main h1 {
-  display: flex;
-  justify-content: center;
+#main {
+  background: url('http://runt-of-the-web.com/wordpress/wp-content/uploads/2017/02/already-late.png') no-repeat;
+  // background: url('https://isardasorensen.files.wordpress.com/2012/03/tp-brooklyn-bridge-3-9-12.jpg') no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 210px 0;
+  margin-bottom: 50px;
 }
 
-div h1:hover {
-  background: #C3432F;
+#main h1 {
+  font-size: 30px;
+  color: white;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
+
+.auth h1:hover {
+  background: #7B756E;
 }
 
 div {

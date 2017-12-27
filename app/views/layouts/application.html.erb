@@ -6,18 +6,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <nav>
-    <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
-  </nav>
   <body>
+    <% unless current_user.nil? %>
+      <%= render "layouts/nav" %>
+    <% end %>
     <%= yield %>
-    <div class="home-page">
-      <%= link_to "Home", root_path %>
-    </div>
-    <div class="logout-page">
-      <%= link_to "Log out", logout_path, method: :delete %>
-    </div>
   </body>
 </html>
