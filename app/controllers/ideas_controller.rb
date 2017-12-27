@@ -8,7 +8,6 @@ class IdeasController < ApplicationController
   def create
     @user = current_user
     @idea = @user.ideas.new(idea_params)
-    # binding.pry
     if @idea.save!
       redirect_to user_path(@user)
     else
@@ -24,6 +23,7 @@ class IdeasController < ApplicationController
   def edit
     @user = current_user
     @idea = @user.ideas.find(params[:id])
+    @images = Image.all
   end
 
   def update
