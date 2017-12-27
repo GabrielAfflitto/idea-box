@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
     @user.password = params[:password]
     @user.password_confirmation = params[:password]
     @user.save
-    # byebug
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       if @user.admin?

@@ -1,29 +1,48 @@
-<h1>Admin Categories</h1>
+<h1>Welcome to the Admin page!</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="stylesheets/welcome.css">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <p class="show"> <%= link_to "Your page", user_path(@user) %> </p>
+    <section class="category_form">
+      <h4>Create a new category for an idea here!</h4>
+      <%= form_for [:admin, @category] do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.submit %>
+      <% end %>
+    </section>
 
-<%= form_for [:admin, @category] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.submit %>
-<% end %>
-<br>
-<p> <%= link_to "Your page", user_path(@user) %> </p>
-<% @categories.each do |category| %>
-  <p><%= category.title %></p>
-     <%= link_to "Delete", admin_category_path(category), method: :delete %>
-<% end %>
-<br>
-<h3>Create a new image here</h3>
-<%= form_for [:admin, @image] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-  <%= f.submit %>
-<% end %>
-<br>
-<% @images.each do |image| %>
-  <%= image.name %>
-  <%= image_tag image.url %>
-  <%= link_to "Delete", admin_image_path(image) %>
-  <br>
-<% end %>
+    <section class="category">
+      <% @categories.each do |category| %>
+        <p><%= category.title %></p>
+        <%= link_to "Delete", admin_category_path(category), method: :delete %>
+      <% end %>
+    </section>
+
+    <section class="img-form">
+      <h3>Create a new image here</h3>
+      <%= form_for [:admin, @image] do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :url %>
+        <%= f.text_field :url %>
+        <%= f.submit %>
+      <% end %>
+    </section>
+
+    <section class="image">
+      <% @images.each do |image| %>
+      <ul>
+        <li>
+          <%= image.name %>
+          <p id="url"><%= image_tag image.url %></p>
+        </li>
+      </ul>
+      <% end %>
+    </section>
+  </body>
+</html>
