@@ -1,6 +1,17 @@
-<%= form_for [@category, @idea] do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>
-  <%= f.submit %>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <%= form_for [@user, @idea] do |f| %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      <%= f.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>
+      <%= f.label :image %>
+      <%= f.collection_select :image_ids, @images, :id, :name, {include_blank: true}, {multiple: true} %>
+      <%= f.submit %>
+    <% end %>
+  </body>
+</html>

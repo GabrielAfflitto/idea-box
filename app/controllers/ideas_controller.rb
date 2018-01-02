@@ -5,46 +5,47 @@ class IdeasController < ApplicationController
     @ideas = @category.ideas
   end
 
-  def new
-    @category = Category.find(params[:category_id])
-    @categories = Category.all
-    # binding.pry
-    @idea = @category.ideas.new()
-  end
-
   def create
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.new(idea_params)
-
+    @user = current_user
+    @idea = @user.ideas.new(idea_params)
     if @idea.save!
-      redirect_to category_ideas_path(@category)
+      redirect_to user_path(@user)
     else
       render :new
     end
   end
 
   def show
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.find(params[:id])
+    @user = current_user
+    @idea = @user.ideas.find(params[:id])
   end
 
   def edit
-    @category = Category.find(params[:category_id])
-    @idea = Idea.find(params[:id])
+    @user = current_user
+    @idea = @user.ideas.find(params[:id])
+    @images = Image.all
   end
 
   def update
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.find(params[:id])
+    @user = current_user
+    @idea = @user.ideas.find(params[:id])
     @idea.update(idea_params)
 
-    redirect_to category_idea_path(@category, @idea)
+    redirect_to user_path(@user)
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @idea = @user.ideas.find(params[:id])
+    @idea.destroy
+
+    redirect_to user_path(@user)
   end
 
   private
 
   def idea_params
-    params.require(:idea).permit(:description, :category_id)
+    params.require(:idea).permit(:description, :category_id, image_ids: [])
   end
 
 end

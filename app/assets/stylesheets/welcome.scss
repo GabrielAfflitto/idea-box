@@ -1,0 +1,124 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: url('http://wrbbradio.org/wp-content/uploads/2016/10/grey-background-06.jpg') no-repeat;
+  color: #EEEDEC;
+}
+
+header.bar {
+  background: #92E0E5;
+  color: white;
+  height: 74px;
+  padding: 0 25px;
+}
+
+header nav {
+  float: right;
+}
+
+nav li {
+  display: inline-block;
+  padding: 17px 10px;
+}
+
+nav li:hover {
+  background: #EEEDEC;
+  color: white;
+  cursor: pointer;
+}
+
+section h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 10px;
+}
+
+#main {
+  background: url('http://runt-of-the-web.com/wordpress/wp-content/uploads/2017/02/already-late.png') no-repeat;
+  // background: url('https://isardasorensen.files.wordpress.com/2012/03/tp-brooklyn-bridge-3-9-12.jpg') no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 210px 0;
+  margin-bottom: 50px;
+}
+
+#main h1 {
+  font-size: 30px;
+  color: white;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
+.auth h1:hover {
+  background: #7B756E;
+}
+
+div {
+  margin-top: 300px;
+}
+
+.login li {
+  display: table-row-group;
+  text-align: center;
+}
+
+.login ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+}
+
+.show {
+  display: inline-block;
+  background: white;
+  border: 5px solid #EEEDEC;
+  padding: 5px 10px;
+}
+
+.category {
+  display: inline-block;
+  background: black;
+  border: 3px solid #EEEDEC;
+  margin-top: 12px;
+  padding: 10px 10px;
+}
+
+.image {
+  display: inline-block;
+  border: 3px solid #EEEDEC;
+  vertical-align: top;
+}
+
+.img-form {
+  margin-bottom: 20px;
+}
+
+.image li {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.image img {
+  height: 200px;
+  padding: 20px;
+}
+
+.admin {
+  display: inline-block;
+  background: white;
+  border: 5px solid #EEEDEC;
+  padding: 5px 10px;
+}
+
+.image h3 {
+  text-align: center;
+}

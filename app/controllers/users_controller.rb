@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Created user #{@user.username}!"
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :new
@@ -15,8 +15,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    # @ideas.current_user.ideas.all
+    if current_user.id == params[:id].to_i
+      @user = current_user
+      @categories = Category.order(:title)
+      @images = Image.order(:name)
+      @idea = Idea.new
+    else
+      render file: "/public/404"
+    end
   end
 
   private

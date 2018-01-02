@@ -1,5 +1,0 @@
-<% @ideas.each do |idea| %>
-  <p><%= idea.description %></p>
-  <%= link_to "Edit", edit_category_idea_path(@category, idea) %>
-<% end %>
-<p> <%= @category.title %> </p>

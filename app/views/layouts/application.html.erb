@@ -3,12 +3,13 @@
   <head>
     <title>IdeaBox</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <% unless current_user.nil? %>
+      <%= render "layouts/nav" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
